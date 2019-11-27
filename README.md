@@ -34,7 +34,7 @@ Digit:
 
 ***********************************************************************
 
-###1.1 Rewrite the grammer(eliminate the ambiguity and left recursion)
+### 1.1 Rewrite the grammer(eliminate the ambiguity and left recursion)
 ```
 REWRITE:
 E = TE'
@@ -51,7 +51,7 @@ DS = DI DS | EOS
 ND = [ 1-9 ]
 DI = [ 0-9 ]
 ```
-###1.2 Find the FIRST set, FOLLOW set, and LL(1) SELECT set.
+### 1.2 Find the FIRST set, FOLLOW set, and LL(1) SELECT set.
 ```
 FIRST SET:
 DI = { [ 0 - 9 ] }
@@ -99,7 +99,7 @@ E' = { '+'  '-'  EOS  FOLLOW(E) }
 E = { FIRST(T) }
 ```
 
-###2.1 Separation
+### 2.1 Separation
 Split the assignment into identifier and expression, and check if assignment has '=' and ';'.
 ```
 // eliminate the space and last char.
@@ -130,7 +130,7 @@ void sliptAssiment(string &identifier, string &expression, const string assigmen
 }
 ```
 
-###2.1 Parsing
+### 2.2 Parsing
 The parsing is according to the grammar and FIRST, FOLLOW, AND SELECT sets.
 
 ```
@@ -351,7 +351,7 @@ void error(string fooName){
 }
 ```
 
-###2.2 Build syntax tree during the parsing.
+### 2.3 Build syntax tree during the parsing.
 Node's value is the operator, the leaves are the operands. Generate the syntax tree while parsing.
 ```
 // generate syntaxtree
@@ -559,7 +559,7 @@ node* expe(){
 }
 ```
 
-###2.3 Syntax tree traversal by postorder traversal.
+### 2.4 Syntax tree traversal by postorder traversal.
 push node's value into stack
 ```
 // traverse syntaxtree by using postorder traversal.
@@ -576,7 +576,7 @@ void postOrder(node *root){
 }
 ```
 
-###2.4 Evaluate expression
+### 2.5 Evaluate expression
 After got the reverse polish notation, program evaluate the expression and output the result.
 ```
 //evaluated the RNP and return it's value.
@@ -621,14 +621,14 @@ int evaluation(stack <int> operands){
 }
 ```
 
-###2.5 Save the pair(identifier,value) into map
+### 2.6 Save the pair(identifier,value) into map
 Save the (identifier, value), it helps the parsing program and evaluation function to detect if a identifier is already declare or not.
 ```
 //save pair<identifier,value> in map.
 IDENTIFIER_MAP.insert({IDENTIFIER,result});
 ```
 
-### 2.6 Output the identifier's value.
+### 2.7 Output the identifier's value.
 ```
 for(auto i = OUTPUTS.begin(); i != OUTPUTS.end(); i++){
         cout<<*i<<" = "<<*(i++)<<endl;
