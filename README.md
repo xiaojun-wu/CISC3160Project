@@ -577,7 +577,7 @@ void postOrder(node *root){
 ```
 
 ### 2.5 Evaluate expression
-After got the reverse polish notation, program evaluate the expression and output the result.
+After got the reverse polish notation, program evaluate the expression and return result.
 ```
 //evaluated the RNP and return it's value.
 int evaluation(stack <int> operands){
