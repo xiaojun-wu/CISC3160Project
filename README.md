@@ -32,8 +32,10 @@ NonZeroDigit:
 Digit:
 	0|1|...|9
 
+***********************************************************************
 
 ###1.1 Rewrite the grammer(eliminate the ambiguity and left recursion)
+```
 REWRITE:
 E = TE'
 E' = +TE' | -TE' | EOS
@@ -48,9 +50,9 @@ NDS = ND DS
 DS = DI DS | EOS
 ND = [ 1-9 ]
 DI = [ 0-9 ]
-
+```
 ###1.2 Find the FIRST set, FOLLOW set, and LL(1) SELECT set.
-
+```
 FIRST SET:
 DI = { [ 0 - 9 ] }
 ND = { [ 1-9] }
@@ -95,6 +97,7 @@ T' = { '*'  EOS   FOLLOW(T)}
 T = { FIRST(F) }
 E' = { '+'  '-'  EOS  FOLLOW(E) }
 E = { FIRST(T) }
+```
 
 ###2.1 Separation
 Split the assignment into identifier and expression, and check if assignment has '=' and ';'.
